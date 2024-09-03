@@ -13,6 +13,6 @@ print_parameters (*values_list)
 print_parameters (**values_dict)
 
 #--------- РАСПАКОВКА + ОТДЕЛЬНЫЕ ПАРАМЕТРЫ ---------
-values_list_2=['my_gorod','yoshkar-ola']
+values_list_2=[43,'yoshkar-ola']
 
 print_parameters(*values_list_2,12)
