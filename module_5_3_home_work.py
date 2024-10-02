@@ -29,34 +29,41 @@ class House:
     def __str__ (self):
         return f'{self.name}, {self.num_of_floor} эт.'
     def __add__(self, other):
-        if isinstance(num_of_floor,int):
-            return self.num_of_floor+other.num_of_floor
+        if isinstance(other, House):
+            return self.num_of_floor + other.num_of_floor
+        return NotImplemented
+    def __radd__(self, other):
+        if isinstance(other, int):  # Если другой операнд - это целое число
+            return self.num_of_floor + other
+        return NotImplemented
 
 h1 = House('9-й микрорайон', 9)
 h2 = House('Домик в деревне', 2)
-h1.go_to(90)
-h2.go_to(6)
+h1.go_to(4)
+h2.go_to(89)
 
 print(str(h1))
 print(str(h2))
 print(len(h1))
 print(len(h2))
 
-print(h1==h2)         # __eq__
-
 print(h1)
-print(h1==h2)
+print(h1==h2)         # __eq__
 
 print(type(h1.num_of_floor))
 
-print(h1)
-h1.num_of_floor+=3    # вызов __add__
-print(h1)
+total_floor = h1 + h2   # Вызов метода __add__
+print()      # Вывод: 11
 print(h1==h2)
+
+total_floor_int = 5 + h1   # Вызов метода __radd__
+print(total_floor_int)     # Вывод: 14 (5 + 9)
 
 print(h1<h2)          # __lt__
 print(h1<=h2)         # __le__
-print(h1>h2)          # __le__
+print(h1>h2)          # __gt__
 print(h1>=h2)         # __ge__
 print(h1!=h2)         # __ne__
+
+
 
