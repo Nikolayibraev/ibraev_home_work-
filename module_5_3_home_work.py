@@ -1,4 +1,3 @@
-#--------------- H O M E  W O R K  (M O D U L E _ 5 _ 3) ---------------
 class House:
     def __init__ (self, name, num_of_floor):
         self.name = name
@@ -15,17 +14,28 @@ class House:
     def __len__ (self):
         return self.num_of_floor
     def __eq__ (self, other):
-        return self.num_of_floor == other.num_of_floor      # ==
+        if isinstance(other, House):
+            return self.num_of_floor == other.num_of_floor      # ==
+        elif isinstance(other, int):
+            return self.number_of_floors == other
     def __lt__ (self, other):
-        return self.num_of_floor < other.num_of_floor       # >
+        if isinstance(other, House):
+            return self.num_of_floor < other.num_of_floor       # >
+        elif isinstance(other, int):
+            return self.number_of_floor < other
+
+
+
     def __le__ (self, other):
-        return self.num_of_floor <= other.num_of_floor      # <=
+        return self.__eq__(other) or self.__lt__(other)    # <=
+
     def __gt__ (self, other):
-        return self.num_of_floor < other.num_of_floor       # <
+        return not self.__le__(other)       # <
     def __ge__ (self, other):
-        return self.num_of_floor >= other.num_of_floor      # >=
+        return not self.__le__(other)      # >=
     def __ne__ (self, other):
-        return self.num_of_floor != other.num_of_floor      # !=
+        return not self.__eq__(other)
+#        return self.num_of_floor != other.num_of_floor      # !=
     def __str__ (self):
         return f'{self.name}, {self.num_of_floor} эт.'
     def __add__(self, other):
@@ -64,6 +74,3 @@ print(h1<=h2)         # __le__
 print(h1>h2)          # __gt__
 print(h1>=h2)         # __ge__
 print(h1!=h2)         # __ne__
-
-
-
