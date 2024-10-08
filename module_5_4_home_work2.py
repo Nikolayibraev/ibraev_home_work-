@@ -51,9 +51,10 @@ h1 = House('9-й микрорайон', 9)
 print(House.houses_history)
 h2 = House('Домик в деревне', 2)
 print(House.houses_history)
-h1 = House('ЖК Эльбрус', 10)
+h3 = House('ЖК Эльбрус', 10)
 print(House.houses_history)
-h2 = House('ЖК Акация', 20)
+h4 = House('ЖК Акация', 20)
 print(House.houses_history)
 
 del h1
+print(House.houses_history)
