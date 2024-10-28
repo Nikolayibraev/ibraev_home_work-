@@ -25,7 +25,7 @@ def add_everything_up(a, b):
     except TypeError:
         return str(a) + str(b)
 
-# Примеры использования функции
+
 print(add_everything_up(3, 3))
 print(add_everything_up('яблоко', 4215))
 print(add_everything_up(123.2, 1.1))
