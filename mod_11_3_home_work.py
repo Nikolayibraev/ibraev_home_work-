@@ -9,7 +9,7 @@ def introspection_info(obj):
     try:
         module_name = obj.__module__
     except AttributeError:
-        module_name = 'N/A'  # Если атрибут отсутствует, указываем 'N/A'
+        module_name = 'N/A' 
 
     info = {
         'type': obj_type,
