@@ -10,15 +10,10 @@ api = ''
 bot = Bot(token=api)
 dp = Dispatcher(bot, storage=MemoryStorage())
 
-kb = ReplyKeyboardMarkup()
+kb = ReplyKeyboardMarkup(resize_keyboard=True)
 button = KeyboardButton(text = 'Рассчитать')
 button2 = KeyboardButton(text = 'Информация')
 kb.add(button, button2)
-
-@dp.message_handler(commands = ['start'])
-async def start (message):
-    await message.answer('Привет', reply_markup = kb)
-
 
 class UserState(StatesGroup):
     age = State()
@@ -26,8 +21,12 @@ class UserState(StatesGroup):
     weight = State()
     gender = State()
 
+@dp.message_handler(commands = ['start'])
+async def start (message):
+    await message.answer('Привет', reply_markup = kb)
+
 @dp.message_handler(text='Информация')    #хендлер на вторую кнопку
-async def set_gender (message):
+async def inform (message):
     await message.answer ('Я бот помогающий твоему здоровью')
 
 
